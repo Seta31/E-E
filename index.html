@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sevgili Güzel Elif'im</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            height: 100vh;
+            overflow-x: hidden;
+            color: #fff;
+            text-align: center;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        p {
+            font-size: 1.5em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.05);
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .memory {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+            min-height: 100px;
+        }
+
+        .memory.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .firefly {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+            animation: flicker 3s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .spotify-embed {
+            margin: 30px auto;
+            max-width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab {
+            display: none;
+        }
+
+        .tab.active {
+            display: block;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .tab-buttons {
+            margin: 20px 0;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: rgba(255, 255, 255, 0.5);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="photo-frame">
+            <!-- Elif'in fotoğrafı buraya -->
+            <img src="https://via.placeholder.com/200" alt="Elif'in Fotoğrafı">
+        </div>
+        <h1>Sevgili Güzel Elif'im</h1>
+        
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="openTab('memories')">Anılarımız</button>
+            <button class="tab-btn" onclick="openTab('playlist')">Özel Playlist</button>
+            <button class="tab-btn" onclick="openTab('message')">Mesajım</button>
+        </div>
+        
+        <div id="memories" class="tab active">
+            <div class="memory">
+                <p>Seninle geçirdiğim her an, uyanmak istemediğim güzel bir rüya gibi.</p>
+            </div>
+            
+            <div class="memory">
+                <p>Gülüşün en karanlık günlerimi aydınlatıyor ve kalbimi neşeyle dolduruyor.</p>
+            </div>
+            
+            <div class="memory">
+                <p>Her gün seni daha çok seviyorum, bu kadar mümkün olabileceğini hiç düşünmemiştim.</p>
+            </div>
+            
+            <button class="btn" id="memoryBtn">Başka Anılar</button>
+        </div>
+        
+        <div id="playlist" class="tab">
+            <h2>Bizim Şarkımız</h2>
+            <div class="spotify-embed">
+                <iframe src="https://open.spotify.com/embed/track/3730z7N28rvWW4PpSXR7PY?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <p>Bu şarkıyı her duyduğumda aklıma sen geliyorsun.</p>
+        </div>
+        
+        <div id="message" class="tab">
+            <h2>Elif'e Özel Mesaj</h2>
+            <div class="memory visible">
+                <p>Sevgili Elif'im,</p>
+                <p>Ne kadar kelime kullanırsam kullanayım, senin benim için ne ifade ettiğini asla tam olarak anlatamayacağım. Seni bu dünyadaki her şeyden daha çok seviyorum.</p>
+                <p>Sen benim hayatımdaki en güzel şansım, en büyük aşkımsın. ❤️</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = Math.random() * 100 + 'vh';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDuration = (Math.random() * 6 + 3) + 's';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+
+        // Create fireflies
+        function createFireflies() {
+            const firefly = document.createElement('div');
+            firefly.className = 'firefly';
+            firefly.style.left = Math.random() * 100 + 'vw';
+            firefly.style.top = Math.random() * 100 + 'vh';
+            firefly.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(firefly);
+            
+            // Animate firefly movement
+            let x = parseFloat(firefly.style.left);
+            let y = parseFloat(firefly.style.top);
+            let xSpeed = (Math.random() - 0.5) * 0.2;
+            let ySpeed = (Math.random() - 0.5) * 0.2;
+            
+            const moveFirefly = setInterval(() => {
+                x += xSpeed;
+                y += ySpeed;
+                
+                if (x < 0 || x > 100 || y < 0 || y > 100) {
+                    clearInterval(moveFirefly);
+                    firefly.remove();
+                    createFireflies();
+                } else {
+                    firefly.style.left = x + 'vw';
+                    firefly.style.top = y + 'vh';
+                }
+            }, 50);
+        }
+
+        // Show memories one by one
+        function showMemories() {
+            const memories = document.querySelectorAll('#memories .memory');
+            let index = 0;
+            
+            memories[index].classList.add('visible');
+            
+            setInterval(() => {
+                memories[index].classList.remove('visible');
+                index = (index + 1) % memories.length;
+                memories[index].classList.add('visible');
+            }, 5000);
+        }
+
+        // Tab functionality
+        function openTab(tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Next memory
+        document.getElementById('memoryBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const memories = document.querySelectorAll('#memories .memory');
+            const currentVisible = document.querySelector('#memories .memory.visible');
+            let nextIndex = Array.from(memories).indexOf(currentVisible) + 1;
+            if (nextIndex >= memories.length) nextIndex = 0;
+            
+            currentVisible.classList.remove('visible');
+            memories[nextIndex].classList.add('visible');
+        });
+
+        // Initialize
+        window.onload = function() {
+            showMemories();
+            setInterval(createHearts, 300);
+            for (let i = 0; i < 20; i++) {
+                createFireflies();
+            }
+        };
+    </script>
+</body>
+</html>
